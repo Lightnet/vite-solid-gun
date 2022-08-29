@@ -22,5 +22,8 @@ export default defineConfig({
       //}
     }
   },
-  plugins: [solidPlugin(),gunPlugin()],
+  plugins: [
+    solidPlugin()
+    //,gunPlugin()
+  ],
 });

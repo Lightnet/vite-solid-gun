@@ -13,7 +13,8 @@ export default function Home() {
   const [name, setName] = createSignal('Guest');
   const [ran, setRan] = createSignal('');
   let timerID;
-  let gun = GUN("http://127.0.0.1:8000/gun"); //proxy
+  //let gun = GUN("http://127.0.0.1:8000/gun"); //proxy
+  let gun = GUN("http://127.0.0.1:3000/gun"); //proxy
 
   try{
     
