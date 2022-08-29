@@ -1,0 +1,166 @@
+.btnLink{
+	background-color: black;
+	color:white;
+  padding:4px 4px 4px 4px;
+}
+
+.flipClock{
+	display: flex;
+	/*justify-content: space-between;*/
+	/*width: 3 * 140px + 80px;*/
+  width: 500px;
+  background-color: aqua;
+}
+
+.flipUnitContainer{
+	display: block;
+	position: relative;
+	width: 140px;
+	height: 120px;
+	perspective-origin: 50% 50%;
+	perspective: 300px;
+	/*background-color: $card;*/
+	border-radius: 3px;
+	box-shadow: 0px 10px 10px -10px grey;
+}
+.upperCard, .lowerCard{
+	display: flex;
+	position: relative;
+	justify-content: center;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+	border: 1px solid;
+}
+
+.lowerCard{
+	align-items: flex-start;
+	border-top: 0.5px solid;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.flipCard{
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+	backface-visibility: hidden;
+}
+
+.unfold{
+  top: 50%;
+  align-items: flex-start;
+  transform-origin: 50% 0%;
+  transform: rotateX(180deg);
+  /*background-color: $card;*/
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 0.5px solid ;
+  border-top: 0.5px solid ;
+}
+
+.fold{
+	top: 0%;
+  align-items: flex-end;
+  transform-origin: 50% 100%;
+  transform: rotateX(0deg);
+  /*background-color: $card;*/
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 0.5px solid;
+  border-bottom: 0.5px solid; 
+}
+
+@keyframes fold{
+	0%{
+		transform: rotateX(0deg)
+  }
+	100%{
+		transform: rotateX(-180deg)
+  }
+}
+
+@keyframes unfold{
+	0%{
+		transform: rotateX(180deg)
+  }
+	100%{
+		transform: rotateX(0deg)
+  }
+}
+
+#modal{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+/*
+NOTIFY
+*/
+
+.info{
+  background-color: aqua;
+}
+
+.success{
+  background-color: darkseagreen;
+}
+
+.error{
+  background-color: tomato;
+}
+
+.warn{
+  background-color: orangered;
+}
+
+.notify{
+  position: relative;
+  animation-duration: 1s;
+  transition: all 1s ease-out;
+}
+
+.notify_in{
+  position: relative;
+  animation-name: kfnotify_in;
+  animation-duration: 2s;
+  transition: all 1s ease-out;
+}
+
+.notify_out{
+  position: relative;
+  right:calc(-100%);
+  animation-name: kfnotify_out;
+  animation-duration: 2s;
+  transition: all 1s ease-out;
+}
+
+@keyframes kfnotify_in{
+  0% {
+    right:calc(-100%);
+  }
+  100% {
+    right:0%;
+  }
+}
+
+@keyframes kfnotify_out{
+  0% {
+    right:0;
+    top:0px;
+  }
+  60% {
+    top:0px;
+    right:calc(-100%);
+  }
+  100% {
+    /*top:calc(100% * -1);*/
+    height: 0;
+    /*top: -18px;*/
+  }
+}

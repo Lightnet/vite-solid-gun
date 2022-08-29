@@ -1,0 +1,23 @@
+{
+  "name": "solid-gun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gun": "^0.2020.1238",
+    "solid-app-router": "^0.4.2",
+    "solid-js": "^1.5.1",
+    "solid-meta": "^0.28.1",
+    "solid-utils": "^0.8.1",
+    "vite": "^3.0.9",
+    "vite-plugin-solid": "^2.3.0"
+  }
+}
