@@ -1,4 +1,9 @@
-// https://vitejs.dev/guide/api-plugin.html
+/*
+  Project Name: vite-solid-gun
+  License: MIT
+  Created by: Lightnet
+*/
+
 // https://vitejs.dev/guide/api-plugin.html#client-server-communication
 // https://vitejs.dev/guide/api-javascript.html
 // https://stackoverflow.com/questions/14031763/doing-a-cleanup-action-just-before-node-js-exits

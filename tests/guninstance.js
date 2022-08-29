@@ -1,3 +1,9 @@
+/*
+  Project Name: vite-solid-gun
+  License: MIT
+  Created by: Lightnet
+*/
+
 class GunServer {
   // Static properties shared by all instances
   static gun;
