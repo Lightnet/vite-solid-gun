@@ -29,10 +29,14 @@ const IndexMenus = () => {
     "/",
     "/about",
     "/account",
+    "/certs",
     "/forgot",
     "/changepassphrase",
     "/passphrasehint",
     "/login",
+    "/inbox",
+    "/privatemessage",
+    "/chatroom",
     "/signup",
     "/signout"
   ];
@@ -49,8 +53,11 @@ const IndexMenus = () => {
       if(user?.is){
         return ( <div>
           <Link class="btnLink" href="/">Home</Link><span> | </span>
-          <Link class="btnLink" href="/account"> Account </Link><span> | </span>
           <Link class="btnLink" href="/about">About</Link><span> | </span>
+          <Link class="btnLink" href="/account"> Account </Link><span> | </span>
+          <Link class="btnLink" href="/inbox">Inbox</Link><span> | </span>
+          <Link class="btnLink" href="/privatemessage">Private Message</Link><span> | </span>
+          <Link class="btnLink" href="/chatroom">Chat Room</Link><span> | </span>
           <Link class="btnLink" href="/signout">Signout</Link><span> | </span>
           <ToggleTheme />
           </div>)

@@ -30,8 +30,8 @@ const PageLogin = () => {
   const gun = rootGun();
 
   function btnLogin(){
-    console.log(alias())
-    console.log(passphrase())
+    //console.log(alias())
+    //console.log(passphrase())
 
     let user = gun.user();
     if(isPair()){
@@ -48,7 +48,7 @@ const PageLogin = () => {
           console.log(ack.err)
           return;
         }
-        console.log("PASS")
+        //console.log("PASS")
         navigate("/",{ replace: true })
       });
     }
@@ -105,7 +105,7 @@ const PageLogin = () => {
       </td><td>
         <input value={passphrase()} onInput={inputPassphrase}/>
       </td>
-    </tr>;
+    </tr>
     </>
     }
     

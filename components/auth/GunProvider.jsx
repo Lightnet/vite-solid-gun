@@ -18,13 +18,13 @@ export const GunContext = createContext([{
 }]);
 
 function GunProvider(props){
-  console.log("init Gun Provider")
+  //console.log("init Gun Provider")
   const [rootGun, setRootGun] = createSignal();
 
   //setGun(Gun());
   //console.log(gun())
   if(rootGun()==null){
-    console.log(location.origin)
+    //console.log(location.origin)
     //const _gun = GUN() //note if use it will not connect since es module
     //const _gun = GUN("http://localhost:3000/gun")
     const _gun = GUN(location.origin+"/gun")
@@ -38,11 +38,11 @@ function GunProvider(props){
       //console.log('disconnected from', peer);
       console.log("disconnected from peer!");
     });
-    _gun.get('mark').on((data, key) => {
-      console.log("realtime updates:", data);
-    });
+    //_gun.get('mark').on((data, key) => {
+      //console.log("realtime updates:", data);
+    //});
     setRootGun(_gun)
-    console.log("SETUP FINISH")
+    //console.log("SETUP FINISH")
   }
 
   const value = [

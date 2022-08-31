@@ -1,5 +1,9 @@
 .btnLink{
 	background-color: black;
 	color:white;
-  padding:4px 4px 4px 4px;
+  padding:2px 2px 2px 2px;
+	text-decoration: none;
+}
+.btnLink:hover{
+	background-color: gray;
 }

@@ -19,7 +19,10 @@ export default function Account(){
 
   return (<>
     <Link href="/changepassphrase">Change Passphrase</Link><span> | </span>
-    <Link href="/passphrasehint">Passphrase Hint</Link>
+    <Link href="/passphrasehint">Passphrase Hint</Link><span> | </span>
+    <Link href="/certs">Certificates</Link><span> | </span>
+    <Link href="/inbox">Inbox</Link><span> | </span>
+    <Link href="/pm">PM</Link><span> | </span>
     <br/>
     <PageAliasInfo /><br/>
     <PageProfile/><br/>

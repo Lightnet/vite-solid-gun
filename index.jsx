@@ -61,6 +61,22 @@ const routes = [
     path: '/passphrasehint',
     component: lazy(() => import('./components/auth/PagePassphraseHint')),
   },
+  {
+    path: '/certs',
+    component: lazy(() => import('./components/certs/PageCerts')),
+  },
+  {
+    path: '/inbox',
+    component: lazy(() => import('./components/inbox/PageInbox')),
+  },
+  {
+    path: '/privatemessage',
+    component: lazy(() => import('./components/privatemessages/PagePrivateMessages')),
+  },
+  {
+    path: '/chatroom',
+    component: lazy(() => import('./components/chat/PageChatRoom')),
+  },
 ];
 
 const App = () => {
