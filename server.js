@@ -64,7 +64,6 @@ async function createServer() {
     console.log("disconnected from peer!");
   });
 
-
   console.log("init server...")
 }
 

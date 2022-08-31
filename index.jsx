@@ -21,9 +21,12 @@ import {
 } from 'solid-js';
 import { MetaProvider } from 'solid-meta';
 import { createApp } from 'solid-utils';
-import { Router, useRoutes, Link, useParams, useLocation } from 'solid-app-router';
+import { Router, useRoutes, Link, useParams, useLocation } from '@solidjs/router';
 
 import Home from './pages/index.jsx';
+import GunProvider from "./components/auth/GunProvider.jsx";
+import IndexMenus from "./components/IndexMenu";
+import ThemeProvider from "./components/theme/ThemeProvider";
 
 const routes = [
   {
@@ -34,33 +37,25 @@ const routes = [
     path: '/about',
     component: lazy(() => import('./pages/about')),
   },
+  {
+    path: '/login',
+    component: lazy(() => import('./components/auth/Login')),
+  },
+  {
+    path: '/signup',
+    component: lazy(() => import('./components/auth/SignUp')),
+  },
 ];
 
 const App = () => {
   const Route = useRoutes(routes);
-  const params = useParams();
-  const location = useLocation();
-  const pathname = createMemo(() => location.pathname);
-
-  //watch variables
-  createEffect(() => {
-    //console.log("pathname =", pathname())
-  });
-
   return (
-    <>
-      {pathname() === "/three" ? (
-        <>
-          <Link class="btnLink" href="/">Home</Link>
-        </>
-      ):(
-        <>
-        <Link class="btnLink" href="/">Home</Link><span> | </span>
-        <Link class="btnLink" href="/about">About</Link><span> | </span>
-        </>
-      )}
+  <ThemeProvider>
+    <GunProvider>
+      <IndexMenus/>
       <Route />
-    </>
+    </GunProvider>
+  </ThemeProvider>
   );
 };
 
