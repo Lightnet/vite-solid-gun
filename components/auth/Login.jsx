@@ -25,10 +25,9 @@ const PageLogin = () => {
   function inputPassphrase(e){setPassphrase(e.target.value)}
 
   const navigate = useNavigate()
-
   const [rootGun] = useContext(GunContext)
   //console.log(rootGun())
-  let gun = rootGun();
+  const gun = rootGun();
 
   function btnLogin(){
     console.log(alias())

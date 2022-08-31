@@ -38,12 +38,28 @@ const routes = [
     component: lazy(() => import('./pages/about')),
   },
   {
+    path: '/account',
+    component: lazy(() => import('./components/auth/Account')),
+  },
+  {
     path: '/login',
     component: lazy(() => import('./components/auth/Login')),
   },
   {
     path: '/signup',
     component: lazy(() => import('./components/auth/SignUp')),
+  },
+  {
+    path: '/forgot',
+    component: lazy(() => import('./components/auth/Forgot')),
+  },
+  {
+    path: '/changepassphrase',
+    component: lazy(() => import('./components/auth/PageChangePassphrase')),
+  },
+  {
+    path: '/passphrasehint',
+    component: lazy(() => import('./components/auth/PagePassphraseHint')),
   },
 ];
 

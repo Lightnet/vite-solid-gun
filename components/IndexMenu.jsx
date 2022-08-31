@@ -28,10 +28,13 @@ const IndexMenus = () => {
   let whitelist = [
     "/",
     "/about",
+    "/account",
+    "/forgot",
+    "/changepassphrase",
+    "/passphrasehint",
     "/login",
     "/signup",
-    "/signout",
-    "/websocketgun"
+    "/signout"
   ];
 
   const displayMenu = createMemo(()=>{
@@ -46,6 +49,7 @@ const IndexMenus = () => {
       if(user?.is){
         return ( <div>
           <Link class="btnLink" href="/">Home</Link><span> | </span>
+          <Link class="btnLink" href="/account"> Account </Link><span> | </span>
           <Link class="btnLink" href="/about">About</Link><span> | </span>
           <Link class="btnLink" href="/signout">Signout</Link><span> | </span>
           <ToggleTheme />
