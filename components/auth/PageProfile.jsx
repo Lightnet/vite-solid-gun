@@ -20,10 +20,10 @@ const PageProfile = () =>{
   function getProfileParam(_name){
     return new Promise((resolve,reject)=>{
       let user = gun.user();
-      if(!user.is){ return reject(null)} //check for user auth
+      if(!user.is){ return reject(String(null))} //check for user auth
       user.get('profile').get(_name).once((data)=>{
         //console.log(data);
-        resolve(data)
+        resolve(String(data))
       })
     })
   }
@@ -49,10 +49,10 @@ const PageProfile = () =>{
   }
 
   onMount(async ()=>{
-    setAlias(await getProfileParam('alias'))
-    setBorn(await getProfileParam('born'))
-    setEducation(await getProfileParam('education'))
-    setSkills(await getProfileParam('skills'))
+    //setAlias(await getProfileParam('alias'))
+    //setBorn(await getProfileParam('born'))
+    ///setEducation(await getProfileParam('education'))
+    //setSkills(await getProfileParam('skills'))
   })
 
   return (<div>

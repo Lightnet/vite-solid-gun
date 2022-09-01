@@ -7,9 +7,12 @@
  - express
 
 # Information:
-  This is to test out the websocket gun. Create server script than the default to vite server. Due to the websocket or in correct coding still can't find way to set up simple vite server with gun socket.
+  Work in progress testing for gun peer to app test. Create server script that support gun peer to peer connect test. Default to vite server dev have conflict reload and ws network error loop. Due to the websocket or incorrect coding still can't find way to set up simple vite server with gun socket.
 
-  So creeate the server script to work with the gun websocket. But it still used the default vite.config.js file for middleware access for hot reload.
+  But it still used the default vite.config.js file for middleware access for hot reload.
+
+# Certs:
+  Gun has build in test for certs access on node sea graph. That is under testing. Note due to clean up there may be leak or incorrect coding.
 
 # server:
 
@@ -21,12 +24,6 @@ Install packages.
 ```
 npm run server
 ```
-This works.
-
-```
-npm run dev
-```
-Will not work correctly there conflict reload and websocket. Remove the custom gun plugin.
 
 # Demo Link:
  - https://codedamn.com/playground/mZ9rSGrcmKHeKu3iqersk
@@ -35,3 +32,4 @@ Will not work correctly there conflict reload and websocket. Remove the custom g
  - config is not stable but workable as gun own server due to vite js server reload and ws error.
  - re-edit plugin may break reloading and bugs. Not code correctly.
  - plugin reload still have process running bug.
+ - clean up or unload ui for chat message tend to leak unfinish unloading when change the ui.

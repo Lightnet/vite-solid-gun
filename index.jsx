@@ -6,6 +6,7 @@
 
 // https://github.com/solidjs/solid-router
 // https://www.solidjs.com/docs/latest/api#creatememo
+//localStorage.clear();
 
 import "./styles.css";
 

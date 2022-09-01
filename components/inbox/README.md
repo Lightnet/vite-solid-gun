@@ -1,0 +1,1 @@
+not fixed clean up event from gun data list.

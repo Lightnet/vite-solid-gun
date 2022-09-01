@@ -11,6 +11,11 @@ import {
 } from 'solid-js';
 
 import GUN from "gun/gun";
+import "gun/lib/open";
+import "gun/lib/radix";
+import "gun/lib/radisk";
+import "gun/lib/store";
+import "gun/lib/rindexed";
 import "gun/sea";
 
 export const GunContext = createContext([{ 
