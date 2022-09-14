@@ -119,7 +119,7 @@ const PageLogin = () => {
 
   return (<div>
     <label>Login</label> <span> | </span>
-    <label> SEA Pair <input type="checkbox" checked={isCheckPair} onClick={togglePair} /> </label>
+    <label> SEA Pair <input type="checkbox" checked={isCheckPair()} onClick={togglePair} /> </label>
     <table>
       <tbody>
         {displayType}

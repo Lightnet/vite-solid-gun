@@ -38,6 +38,8 @@ const IndexMenus = () => {
     "/privatemessage",
     "/chatroom",
     "/signup",
+    "/notifications",
+    "/friends",
     "/signout"
   ];
 

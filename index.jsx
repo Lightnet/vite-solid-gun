@@ -78,6 +78,14 @@ const routes = [
     path: '/chatroom',
     component: lazy(() => import('./components/chat/PageChatRoom')),
   },
+  {
+    path: '/friends',
+    component: lazy(() => import('./components/friends/PageFriends')),
+  },
+  {
+    path: '/notifications',
+    component: lazy(() => import('./components/notifications/PageNotifications')),
+  },
 ];
 
 const App = () => {

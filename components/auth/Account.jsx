@@ -23,6 +23,8 @@ export default function Account(){
     <Link href="/certs">Certificates</Link><span> | </span>
     <Link href="/inbox">Inbox</Link><span> | </span>
     <Link href="/pm">PM</Link><span> | </span>
+    <Link href="/friends">Friends</Link><span> | </span>
+    <Link href="/notifications">Notifications</Link><span> | </span>
     <br/>
     <PageAliasInfo /><br/>
     <PageProfile/><br/>
