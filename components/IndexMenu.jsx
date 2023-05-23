@@ -29,6 +29,7 @@ const IndexMenus = () => {
     "/",
     "/about",
     "/account",
+    "/contacts",
     "/certs",
     "/forgot",
     "/changepassphrase",
@@ -36,7 +37,7 @@ const IndexMenus = () => {
     "/login",
     "/inbox",
     "/privatemessage",
-    "/chatroom",
+    "/groupmessage",
     "/signup",
     "/notifications",
     "/friends",
@@ -51,24 +52,25 @@ const IndexMenus = () => {
       whitelist.find((item)=>{return item === pathname()})
     ){
       //console.log("FOUND")
+      //<Link class="btnLink" href="/privatemessage">Private Message</Link><span> | </span>
       let user = gun.user();
       if(user?.is){
         return ( <div>
-          <Link class="btnLink" href="/">Home</Link><span> | </span>
-          <Link class="btnLink" href="/about">About</Link><span> | </span>
+          <Link class="btnLink" href="/"> Home </Link><span> | </span>
+          <Link class="btnLink" href="/about"> About </Link><span> | </span>
           <Link class="btnLink" href="/account"> Account </Link><span> | </span>
-          <Link class="btnLink" href="/inbox">Inbox</Link><span> | </span>
-          <Link class="btnLink" href="/privatemessage">Private Message</Link><span> | </span>
-          <Link class="btnLink" href="/chatroom">Chat Room</Link><span> | </span>
-          <Link class="btnLink" href="/signout">Signout</Link><span> | </span>
+          <Link class="btnLink" href="/contacts"> Contacts </Link><span> | </span>
+          <Link class="btnLink" href="/inbox"> Inbox </Link><span> | </span>
+          <Link class="btnLink" href="/groupmessage"> Group Message </Link><span> | </span>
+          <Link class="btnLink" href="/signout"> Sign Out </Link><span> | </span>
           <ToggleTheme />
           </div>)
       }else{
         return ( <div>
-          <Link class="btnLink" href="/">Home</Link><span> | </span>
-          <Link class="btnLink" href="/about">About</Link><span> | </span>
-          <Link class="btnLink" href="/login">Login</Link><span> | </span>
-          <Link class="btnLink" href="/signup">Sign Up</Link><span> | </span>
+          <Link class="btnLink" href="/"> Home </Link><span> | </span>
+          <Link class="btnLink" href="/about"> About </Link><span> | </span>
+          <Link class="btnLink" href="/login"> Login </Link><span> | </span>
+          <Link class="btnLink" href="/signup"> Sign Up </Link><span> | </span>
           <ToggleTheme />
           </div>)
       }

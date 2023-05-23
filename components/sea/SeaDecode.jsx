@@ -10,18 +10,11 @@ import {
 , createEffect 
 , onCleanup
 , useContext
-, onMount
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
-
-function AddFriend(){
-
+export default function SeaDecode(){
+  
   return (<>
-    <label> Public Key:</label>
-    <input />
-    <button> Add Friend </button>
+  
   </>)
 }
-
-export default AddFriend;

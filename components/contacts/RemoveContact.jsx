@@ -14,11 +14,14 @@ import {
 } from 'solid-js';
 
 import { GunContext } from '../auth/GunProvider';
-import AddFriend from './AddFriend';
 
-function PageFriends(){
+function RemoveContact(){
 
   return (<>
-    <AddFriend />
+    <label> Public Key:</label>
+    <input />
+    <button> Remove </button>
   </>)
 }
+
+export default RemoveContact;

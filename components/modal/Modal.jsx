@@ -19,24 +19,27 @@ import "./modal.css";
 
 function Modal(props){
 
-  const [isOpen, setIsOpen] = createSignal(props.isopen() || false);
-  const [enableDrag, setEnableDrag] = createSignal(props.enabledrag ||false);
+  const [isOpen, setIsOpen] = createSignal(props?.isopen || false);
+  const [enableDrag, setEnableDrag] = createSignal(props?.enabledrag ||false);
   //setEnableDrag(true)
   const [offSet, setOffSet] = createSignal({x:0,y:0});
   const [translate, setTranslate] = createSignal({x:0,y:0});
   const [isDrag, setIsDrag] = createSignal(false);
 
-  const [width, setWidth] = createSignal(props.width || 200);
-  const [height, setHeight] = createSignal(props.height || 100);
+  const [width, setWidth] = createSignal(props?.width || 200);
+  const [height, setHeight] = createSignal(props?.height || 100);
 
-  const [isCenter, setIsCenter] = createSignal(props.center || true);
+  const [isCenter, setIsCenter] = createSignal(props?.center || true);
   let ref;
 
   createEffect(()=>{
-    //console.log(props.isopen())
+    console.log(props?.isopen)
     //console.log(typeof props.isopen())
     //console.log(typeof props.isopen)
-    setIsOpen(props.isopen())
+    if(typeof props?.isopen == 'boolean'){
+      console.log(props.isopen)
+      setIsOpen(props.isopen)
+    }
   })
 
   createEffect(()=>{

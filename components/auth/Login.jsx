@@ -83,7 +83,7 @@ const PageLogin = () => {
         </tr>
         <tr>
         <td>
-          <label>SEA Pair:</label>
+          <label>User Key Pair:</label>
         </td>
         <td>
           <textarea value={textPair()} onInput={inputAlias} placeholder="JSON String"/>
@@ -118,16 +118,34 @@ const PageLogin = () => {
   }
 
   return (<div>
-    <label>Login</label> <span> | </span>
-    <label> SEA Pair <input type="checkbox" checked={isCheckPair()} onClick={togglePair} /> </label>
+    
+    
     <table>
       <tbody>
+        <tr>
+          <td colspan="2" style="background:gray;">
+            <center><label>Login</label></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label> SEA Pair <input type="checkbox" checked={isCheckPair()} onClick={togglePair} /> </label>
+          </td>
+        </tr>
         {displayType}
         <tr>
           <td colspan="2">
-            <button onClick={btnLogin}>Login</button>
-            <button onClick={btnSignUp}>Sign Up</button>
-            <button onClick={btnForgot}>Forgot</button>
+            <button style="width:100%;" onClick={btnLogin}>Login</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button style="width:100%;" onClick={btnSignUp}>Sign Up</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button style="width:100%;" onClick={btnForgot}>Forgot</button>
           </td>
         </tr>
       </tbody>

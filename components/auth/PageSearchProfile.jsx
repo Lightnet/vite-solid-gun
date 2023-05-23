@@ -64,14 +64,60 @@ const PageSearchProfile = () =>{
   }
   
   //${PageNavMenu()}
-  return (<div>
-    <label>Search Public Key:</label> <input value={publicKey()} onInput={searchPublicKey}/> <label>Status: {status()}</label> <br/>
-    <label>Name: </label> <input value={name()} /><br/>
-    <label>Alias: </label> <input value={alias()} /><br/>
-    <label>Born:</label> <input value={born()} /><br/>
-    <label>Education</label> <input value={education()} />  <br/>
-    <label>Skills</label> <input value={skills()} />  <br/>
-  </div>);
+  return (<table>
+    <tbody>
+    <tr>
+        <td>
+        <label>Search Public Key:</label>
+        </td>
+        <td>
+        <input value={publicKey()} onInput={searchPublicKey}/> <label>Status: {status()}</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Name:</label>      
+        </td>
+        <td>
+          <input name="alias" value={name()} />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Alias:</label>      
+        </td>
+        <td>
+          <input name="alias" value={alias()} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <label>Born:</label> 
+        </td>
+        <td>
+        <input name="born" value={born()} />   
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <label>Education:</label> 
+        </td>
+        <td>
+        <input name="education" value={education()}/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Skills:</label>
+        </td>
+        <td>
+          <input name="skills" value={skills()}/>
+        </td>
+      </tr>
+    </tbody>
+  </table>);
 }
 
 export default PageSearchProfile;

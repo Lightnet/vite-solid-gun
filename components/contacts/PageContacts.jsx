@@ -10,18 +10,20 @@ import {
 , createEffect 
 , onCleanup
 , useContext
+, onMount
 } from 'solid-js';
 
 import { GunContext } from '../auth/GunProvider';
+import AddContact from './AddContact';
+import RemoveContact from './RemoveContact';
 
-function PageChatRoom(){
-//async
-  const [rootGun] = useContext(GunContext);
-  let gun = rootGun();
+function PageContacts(){
 
-  return(<>
-  
+  return (<>
+    <AddContact />
+    
   </>)
+  //<RemoveContact />
 }
 
-export default PageChatRoom;
+export default PageContacts

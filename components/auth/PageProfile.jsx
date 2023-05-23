@@ -49,18 +49,48 @@ const PageProfile = () =>{
   }
 
   onMount(async ()=>{
-    //setAlias(await getProfileParam('alias'))
-    //setBorn(await getProfileParam('born'))
-    ///setEducation(await getProfileParam('education'))
-    //setSkills(await getProfileParam('skills'))
+    setAlias(await getProfileParam('alias'))
+    setBorn(await getProfileParam('born'))
+    setEducation(await getProfileParam('education'))
+    setSkills(await getProfileParam('skills'))
   })
 
-  return (<div>
-    <label>Alias:</label> <input name="alias" value={alias()} onKeyUp={inputProfileParam} /><br/>
-    <label>Born:</label> <input name="born" value={born()} onKeyUp={inputProfileParam} /><br/>
-    <label>Education:</label> <input name="education" value={education()} onKeyUp={inputProfileParam} /><br/>
-    <label>Skills:</label> <input name="skills" value={skills()} onKeyUp={inputProfileParam} /><br/>
-  </div>);
+  return (<table>
+    <tbody>
+      <tr>
+        <td>
+          <label>Alias:</label>      
+        </td>
+        <td>
+          <input name="alias" value={alias()} onKeyUp={inputProfileParam} /><br/>     
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <label>Born:</label> 
+        </td>
+        <td>
+        <input name="born" value={born()} onKeyUp={inputProfileParam} /><br/>        
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <label>Education:</label> 
+        </td>
+        <td>
+        <input name="education" value={education()} onKeyUp={inputProfileParam} /><br/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Skills:</label>
+        </td>
+        <td>
+          <input name="skills" value={skills()} onKeyUp={inputProfileParam} /><br/>
+        </td>
+      </tr>
+    </tbody>
+  </table>);
 }
 
 export default PageProfile;

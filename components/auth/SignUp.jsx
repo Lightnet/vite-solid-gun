@@ -44,12 +44,19 @@ const PageSignUp = () => {
   }
 
   return <div>
-    <label>Register</label>
+    
     <table>
       <tbody>
         <tr>
+          <td colspan="2" style="background:gray;">
+            <center>
+            <label>Register</label>
+            </center>
+          </td>
+        </tr>
+        <tr>
           <td>
-            <label>Alias:</label>
+              <label>Alias:</label>
           </td>
           <td>
             <input value={alias()} onInput={inputAlias}/>
@@ -64,8 +71,12 @@ const PageSignUp = () => {
         </tr>
         <tr>
           <td colspan="2">
-            <button onClick={btnRegister}>Register</button>
-            <button onClick={btnCancel}>Cancel</button>
+            <button style="width:100%;" onClick={btnRegister}>Register</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button style="width:100%;" onClick={btnCancel}>Cancel</button>
           </td>
         </tr>
       </tbody>

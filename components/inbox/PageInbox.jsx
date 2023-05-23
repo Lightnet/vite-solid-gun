@@ -43,6 +43,7 @@ function PageInbox(){
       
       //const _name = await getUserName(key);
       //let alist = aliasList();
+      /*
       for( let _Key in data ){
         //console.log(_Key)
         const _name = await getUserName(_Key);
@@ -74,6 +75,7 @@ function PageInbox(){
 
         }
       }
+      */
     })
   }
 
@@ -191,6 +193,16 @@ function PageInbox(){
     //console.log(messageList())
   })
 
+  function getMap(){
+    let user = gun.user();
+    console.log(user);
+    user.get('inbox').map().once(data=>{
+      console.log(data)
+    })
+
+    user.get('inbox').map().off();
+  }
+
   return(<>
     <label> Public Key </label>
     <input value={pubKey()} onInput={onPubKey} />
@@ -201,6 +213,7 @@ function PageInbox(){
     <input value={message()} onInput={onMessage} />
 
     <button onClick={sentMessage}> Sent </button>
+    <button onClick={getMap}> Map </button>
     <div>
       {messageList()}
     </div>
