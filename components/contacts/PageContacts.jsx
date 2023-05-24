@@ -13,15 +13,17 @@ import {
 , onMount
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+//import { GunContext } from '../auth/GunProvider';
+//import RemoveContact from './RemoveContact';
 import AddContact from './AddContact';
-import RemoveContact from './RemoveContact';
+
+import ContactList from './ContactList';
 
 function PageContacts(){
 
   return (<>
     <AddContact />
-    
+    <ContactList />
   </>)
   //<RemoveContact />
 }

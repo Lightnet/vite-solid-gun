@@ -7,7 +7,7 @@ import {
 , createEffect
 , createMemo
 , createContext
-, onError
+, useContext
 } from 'solid-js';
 
 import GUN from "gun/gun";
@@ -63,3 +63,9 @@ function GunProvider(props){
 }
 
 export default GunProvider;
+
+export function useGun(){
+  const [rootGun] = useContext(GunContext)
+  //const myGun = rootGun;
+  return rootGun;
+}

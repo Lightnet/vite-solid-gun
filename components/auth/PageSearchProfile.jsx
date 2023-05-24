@@ -42,7 +42,7 @@ const PageSearchProfile = () =>{
 		}else{
       //console.log(who)
       setName(who.alias)
-      setStatus('Found! ' + who.alias)
+      setStatus(who.alias + ' Found! ')
 		}
     find.get('profile').map().once((data, key)=>{
       //console.log(data)

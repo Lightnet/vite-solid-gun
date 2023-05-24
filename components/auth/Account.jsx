@@ -22,7 +22,7 @@ export default function Account(){
     <Link href="/passphrasehint">Passphrase Hint</Link><span> | </span>
     <Link href="/certs">Certificates</Link><span> | </span>
     <Link href="/inbox">Inbox</Link><span> | </span>
-    <Link href="/pm">PM</Link><span> | </span>
+    <Link href="/pm">Private Messages</Link><span> | </span>
     <Link href="/contacts">Contacts</Link><span> | </span>
     <Link href="/notifications">Notifications</Link><span> | </span>
     <br/>

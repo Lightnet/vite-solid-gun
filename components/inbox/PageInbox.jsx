@@ -16,10 +16,10 @@ import {
 import { GunContext } from '../auth/GunProvider';
 
 function PageInbox(){
-  const [pubKey, setPubKey]= createSignal("")
-  const [message, setMessage]= createSignal("")
-  const [inbox, setInbox]= createSignal()
-  const [status, setStatus]= createSignal("Idle")
+  const [pubKey, setPubKey] = createSignal("")
+  const [message, setMessage] = createSignal("")
+  const [inbox, setInbox] = createSignal()
+  const [status, setStatus] = createSignal("Idle")
 
   const [messages, setMessages] = createSignal(new Map())
   const [aliasList, setAliasList] = createSignal([])
@@ -38,23 +38,27 @@ function PageInbox(){
     gunInbox = gun.user().get('inbox')
     setInbox(gunInbox)
     gunInbox.once( async (data,key)=>{
-      console.log(data)
-      console.log(key)
+      console.log("DATA: ",data)
+      console.log("KEY: ",key)
       
       //const _name = await getUserName(key);
       //let alist = aliasList();
-      /*
+      
       for( let _Key in data ){
         //console.log(_Key)
         const _name = await getUserName(_Key);
         //console.log(_name)
         if(_name !=null){
-          console.log(_name)
+          console.log("ALIAS: ",_name)
+          let userData = {
+            alias:_name,
+            pub:_Key
+          }
+          setAliasList(state=>[...state,userData]);
+          /*
           const aliasMapMsg = gun.user().get('inbox').get(_Key);
-
           const d = await gun.user().get('inbox').get(_Key).then();
           console.log(d)
-
           aliasMapMsg.map().once((data0,key0,_msg, _ev)=>{
             if(isExit()){
               gun.user().get('inbox').off();
@@ -63,7 +67,6 @@ function PageInbox(){
             console.log(key0)
             addMessage({message:data0.message,alias: _name},key0)
           })
-
           let DMap = aliasList();
           let AliasD = {
             key:_Key,
@@ -72,10 +75,9 @@ function PageInbox(){
           gunList.push(aliasMapMsg)
           DMap.push(AliasD);
           setAliasList(DMap);
-
+          */
         }
       }
-      */
     })
   }
 
@@ -89,7 +91,6 @@ function PageInbox(){
     initInbox();
   })
   
-
   onCleanup(()=>{
     console.log("CLEAN UP")
     setIsExist(true)
@@ -102,11 +103,11 @@ function PageInbox(){
       gunInbox=null;
     }
     gun.user().get('inbox').off();
-    let alist = aliasList()
-    for(let index in alist){
-      console.log(alist[index])
-      alist[index].gun.off();
-    }
+    //let alist = aliasList()
+    //for(let index in alist){
+      //console.log(alist[index])
+      //alist[index].gun.off();
+    //}
 
     for(let index in gunList){
       console.log(gunList[index])
@@ -203,9 +204,47 @@ function PageInbox(){
     user.get('inbox').map().off();
   }
 
+  function aliasSelect(e){
+    console.log(e.target.value);
+    setPubKey(e.target.value)
+    
+  }
+
+  createEffect(()=>{
+    //console.log(messages())
+    //let d = messages();
+    //console.log(d)
+    //console.log(messageList())
+    if(pubKey()){
+      if(pubKey() !=""){
+        setMessages([])
+        loadAliasMessages()
+      }
+    }
+  },[pubKey])
+
+  async function loadAliasMessages(){
+    gun.user().get('inbox').off()
+    let aliasMapMsg = gun.user().get('inbox').get(pubKey());
+    const _name = await getUserName(pubKey());
+
+    aliasMapMsg.map().once((data0,key0,_msg, _ev)=>{
+
+      addMessage({message:data0.message,alias: _name},key0)
+    });
+  }
+
   return(<>
     <label> Public Key </label>
     <input value={pubKey()} onInput={onPubKey} />
+    <select onChange={aliasSelect}>
+      <option value="">Alias Public Key</option>
+      <For each={aliasList()}>{(contact, i)=>
+        <option value={contact.pub}> {contact.alias} </option>
+      }</For>
+      
+    </select>
+
     <label>Status: {status()} </label>
     <br/>
 
