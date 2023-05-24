@@ -24,6 +24,8 @@ function PageInbox(){
   const [messages, setMessages] = createSignal(new Map())
   const [aliasList, setAliasList] = createSignal([])
   const [isExit, setIsExist] = createSignal(false)
+
+  const [scrollID, setScrollID] = createSignal(String.random(16))
   //const []= createSignal("")
 
   const [rootGun] = useContext(GunContext);
@@ -135,6 +137,7 @@ function PageInbox(){
     //})
     let arr = [...dmsgs];
     //console.log(arr)
+    //scroll_bottom()
     return [...dmsgs].map(item=>{
       //console.log(item)
       return <div id={item[0]}>
@@ -158,9 +161,11 @@ function PageInbox(){
         message:message(),
         date: Date.now()
       }
+
+      //check for data hash match later
       var hash = await SEA.work(data, null, null, {name: "SHA-256"});
       console.log(hash)
-
+      //to user,         //current user   //hash   //message data    //cert 
       to.get('inbox').get(user.is.pub).get(hash).put(data,null,{opt: { cert: cert }})
 
       //to.get('inbox').get(user.is.pub).put(null,null,{opt: { cert: cert }})
@@ -187,12 +192,12 @@ function PageInbox(){
   }
   function onMessage(e){setMessage(e.target.value)}
 
-  createEffect(()=>{
+  //createEffect(()=>{
     //console.log(messages())
     //let d = messages();
     //console.log(d)
     //console.log(messageList())
-  })
+  //})
 
   function getMap(){
     let user = gun.user();
@@ -207,7 +212,31 @@ function PageInbox(){
   function aliasSelect(e){
     console.log(e.target.value);
     setPubKey(e.target.value)
-    
+  }
+
+  createEffect(()=>{
+    if(messages()){
+      scroll_bottom()
+    }
+  })
+
+  async function loadAliasMessages(){
+    gun.user().get('inbox').off()
+    let aliasMapMsg = gun.user().get('inbox').get(pubKey());
+    const _name = await getUserName(pubKey());
+    if(_name){//check if name exist
+      aliasMapMsg.map().once((data0,key0,_msg, _ev)=>{
+        addMessage({message:data0.message,alias: _name},key0)
+      });
+    }
+  }
+
+  //https://stackoverflow.com/questions/11715646/scroll-automatically-to-the-bottom-of-the-page
+  function scroll_bottom(){
+    let element = document.getElementById(scrollID());
+    if(element){
+      element.scrollTop = element.scrollHeight;
+    }
   }
 
   createEffect(()=>{
@@ -223,18 +252,8 @@ function PageInbox(){
     }
   },[pubKey])
 
-  async function loadAliasMessages(){
-    gun.user().get('inbox').off()
-    let aliasMapMsg = gun.user().get('inbox').get(pubKey());
-    const _name = await getUserName(pubKey());
-
-    aliasMapMsg.map().once((data0,key0,_msg, _ev)=>{
-
-      addMessage({message:data0.message,alias: _name},key0)
-    });
-  }
-
   return(<>
+    <div>
     <label> Public Key </label>
     <input value={pubKey()} onInput={onPubKey} />
     <select onChange={aliasSelect}>
@@ -253,8 +272,9 @@ function PageInbox(){
 
     <button onClick={sentMessage}> Sent </button>
     <button onClick={getMap}> Map </button>
-    <div>
+    <div id={scrollID()} style="height:calc(50vh - 60px);width:100%;overflow-y: scroll;">
       {messageList()}
+    </div>
     </div>
   </>)
 }
