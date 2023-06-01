@@ -28,7 +28,7 @@ function PageInbox(){
   const [scrollID, setScrollID] = createSignal(String.random(16))
   //const []= createSignal("")
 
-  const [rootGun] = useContext(GunContext);
+  const {rootGun} = useContext(GunContext);
   let gun = rootGun();
   let gunInbox;
   let gunList=[];
@@ -118,6 +118,7 @@ function PageInbox(){
     setAliasList([])
   })
 
+  //check user exist
   async function getUserName(_id){
     let to = await gun.user(_id)
     //console.log(to?.alias);

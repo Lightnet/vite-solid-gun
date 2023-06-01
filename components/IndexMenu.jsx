@@ -21,13 +21,13 @@ const IndexMenus = () => {
   const location = useLocation();
   const pathname = createMemo(() => location.pathname);
 
-  const [rootGun] = useContext(GunContext);
+  const {rootGun} = useContext(GunContext);
   let gun = rootGun();
 
   //for menu display
   let whitelist = [
     "/",
-    "/about",
+    //"/about",
     "/account",
     "/contacts",
     "/certs",
@@ -61,6 +61,7 @@ const IndexMenus = () => {
           <Link class="btnLink" href="/account"> Account </Link><span> | </span>
           <Link class="btnLink" href="/contacts"> Contacts </Link><span> | </span>
           <Link class="btnLink" href="/inbox"> Inbox </Link><span> | </span>
+          <Link class="btnLink" href="/privatemessage"> Private Messsage </Link><span> | </span>
           <Link class="btnLink" href="/groupmessage"> Group Message </Link><span> | </span>
           <Link class="btnLink" href="/signout"> Sign Out </Link><span> | </span>
           <ToggleTheme />
@@ -68,12 +69,13 @@ const IndexMenus = () => {
       }else{
         return ( <div>
           <Link class="btnLink" href="/"> Home </Link><span> | </span>
-          <Link class="btnLink" href="/about"> About </Link><span> | </span>
           <Link class="btnLink" href="/login"> Login </Link><span> | </span>
-          <Link class="btnLink" href="/signup"> Sign Up </Link><span> | </span>
+          
           <ToggleTheme />
           </div>)
       }
+      //<Link class="btnLink" href="/about"> About </Link><span> | </span>
+      //<Link class="btnLink" href="/signup"> Sign Up </Link><span> | </span>
       
     }else{
       //console.log("NOT FOUND")

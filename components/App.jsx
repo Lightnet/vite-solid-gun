@@ -11,6 +11,7 @@ import Home from '../pages/index.jsx';
 import GunProvider from "./auth/GunProvider.jsx";
 import IndexMenus from "./IndexMenu";
 import ThemeProvider from "./theme/ThemeProvider";
+import BottomBar from './hotbars/BottomBar.jsx';
 
 const routes = [
   {
@@ -78,6 +79,7 @@ const App = () => {
     <GunProvider>
       <IndexMenus/>
       <Route />
+      <BottomBar/>
     </GunProvider>
   </ThemeProvider>
   );

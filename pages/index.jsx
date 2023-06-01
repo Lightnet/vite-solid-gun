@@ -15,7 +15,7 @@ import { GunContext } from '../components/auth/GunProvider';
 export default function Home() {
   const [name, setName] = createSignal('Guest');
 
-  const [rootGun] = useContext(GunContext)
+  const {rootGun} = useContext(GunContext)
 
   const gun = rootGun();
 

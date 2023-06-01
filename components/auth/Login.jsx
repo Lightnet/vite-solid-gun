@@ -25,7 +25,7 @@ const PageLogin = () => {
   function inputPassphrase(e){setPassphrase(e.target.value)}
 
   const navigate = useNavigate()
-  const [rootGun] = useContext(GunContext)
+  const {rootGun, setUserAlias, setUserAliasPub, setIsLogin} = useContext(GunContext)
   //console.log(rootGun())
   const gun = rootGun();
 
@@ -40,6 +40,8 @@ const PageLogin = () => {
           console.log(ack.err)
           return;
         }
+        //setUserAliasPub()
+        setIsLogin(true)
         navigate("/",{ replace: true })
       });
     }else{
@@ -48,6 +50,11 @@ const PageLogin = () => {
           console.log(ack.err)
           return;
         }
+        console.log(ack)
+        //ack.root
+        setUserAlias(ack.root.user.is.alias)
+        setUserAliasPub(ack.sea.pub)
+        setIsLogin(true)
         //console.log("PASS")
         navigate("/",{ replace: true })
       });

@@ -25,6 +25,9 @@ export const GunContext = createContext([{
 function GunProvider(props){
   //console.log("init Gun Provider")
   const [rootGun, setRootGun] = createSignal();
+  const [userAliasPub, setUserAliasPub] = createSignal("");
+  const [userAlias, setUserAlias] = createSignal("");
+  const [isLogin, setIsLogin] = createSignal(false);
 
   //setGun(Gun());
   //console.log(gun())
@@ -50,10 +53,12 @@ function GunProvider(props){
     //console.log("SETUP FINISH")
   }
 
-  const value = [
-    rootGun,
-    setRootGun
-  ];
+  const value = {
+    rootGun, setRootGun,
+    userAlias, setUserAlias,
+    userAliasPub, setUserAliasPub,
+    isLogin, setIsLogin
+  };
 
   return (
     <GunContext.Provider value={value}>
@@ -65,7 +70,7 @@ function GunProvider(props){
 export default GunProvider;
 
 export function useGun(){
-  const [rootGun] = useContext(GunContext)
+  const {rootGun} = useContext(GunContext)
   //const myGun = rootGun;
   return rootGun;
 }

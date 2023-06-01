@@ -8,7 +8,7 @@ import { GunContext } from "./GunProvider";
 
 const PageProfile = () =>{
 
-  const [rootGun] = useContext(GunContext)
+  const {rootGun} = useContext(GunContext)
   //console.log(rootGun())
   const gun = rootGun();
   

@@ -16,6 +16,7 @@ import { GunContext } from '../auth/GunProvider';
 import CertInbox from './CertInbox';
 import CertMessages from './CertMessages';
 import CertNotifications from './CertNotifications';
+import PrivateMessages from './CertPrivateMessage'
 
 const PageCerts = () => {
   return (<>
@@ -29,6 +30,7 @@ const PageCerts = () => {
   </div>
   <div>
     <CertInbox/>
+    <PrivateMessages/>
     <CertMessages/>
     <CertNotifications/>
   </div>

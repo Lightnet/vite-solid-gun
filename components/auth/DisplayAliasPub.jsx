@@ -1,4 +1,5 @@
 
+
 import {
   createSignal
 , createEffect
@@ -10,16 +11,30 @@ import {
 
 import { GunContext } from "./GunProvider";
 
-const PageAliasInfo = () =>{
+export default function DisplayAliasPub(){
 
-  const {rootGun} = useContext(GunContext)
+  const {rootGun, userAlias, userAliasPub} = useContext(GunContext)
   //console.log(rootGun())
   const gun = rootGun();
   let user = gun.user();
 
   const [alias, setAlias] = createSignal(user?.is?.alias || "Guest")
   const [publicKey, setPublicKey] = createSignal(user?.is?.pub || "")
-  const [toggleKey, setToggleKey] = createSignal(true)
+  const [toggleKey, setToggleKey] = createSignal(false)
+
+  createEffect(()=>{
+    let pub = userAliasPub()
+    if(pub){
+      setPublicKey(pub);
+    }
+  })
+
+  createEffect(()=>{
+    let _alias = userAlias()
+    if(_alias){
+      setAlias(_alias)
+    }
+  })
 
   function copyPubKey(){
     console.log("KEY:",publicKey())
@@ -47,14 +62,11 @@ const PageAliasInfo = () =>{
     }
   });
 
-  return (<div>
-    <label>Alias: {alias()}</label><br/>
-    <label onClick={copyPubKey}>Public Key:</label>
-    <input value={ShowPubKey()} readonly />
-    <label onClick={togglePubKey}>[{isExpand()}]</label>
-    <label onClick={copyPubKey}>[copy]</label> 
-    <br/>
-  </div>);
+  return (<>
+  <label>Alias: {alias()} </label>
+  {toggleKey()?<input value={ShowPubKey()} readonly />:<></>}
+  
+  <label onClick={togglePubKey}>[{isExpand()}]</label>
+  <label onClick={copyPubKey}>[copy]</label> 
+  </>)
 }
-
-export default PageAliasInfo;
