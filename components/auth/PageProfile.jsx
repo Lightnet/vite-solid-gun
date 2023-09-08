@@ -4,13 +4,12 @@ import {
 , useContext
 } from 'solid-js';
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 
 const PageProfile = () =>{
 
-  const {rootGun} = useContext(GunContext)
   //console.log(rootGun())
-  const gun = rootGun();
+  const gun = useGun();
   
   const [alias, setAlias] = createSignal("")
   const [born, setBorn] = createSignal("")

@@ -9,12 +9,11 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext,
-onMount,
-For
+, onMount
+, For
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { useGun } from '../auth/GunProvider';
 
 function PagePrivateMessages(){
 //async
@@ -23,8 +22,7 @@ function PagePrivateMessages(){
   const [pub, setPub] = createSignal("");
   const [pubKeys, setPubKeys] = createSignal([]);
 
-  const {rootGun} = useContext(GunContext);
-  let gun = rootGun();
+  const gun = useGun();
 
   function inputChatMessage(e){
     //console.log(e)

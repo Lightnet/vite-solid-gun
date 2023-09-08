@@ -9,20 +9,18 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { useGun } from '../auth/GunProvider';
 
 function PrivateMessages(){
 
   const [days, setDays] = createSignal(1);
-  const [rootGun] =useContext(GunContext);
-  const gun = rootGun();
+  const gun = useGun();
 
   async function setMessagesCert(){
 
-    let user = gun.user();
+    const user = gun.user();
     //console.log(user)
 
     const cert = await SEA.certify( 

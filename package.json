@@ -15,13 +15,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@solidjs/router": "^0.8.2",
+    "@solidjs/router": "^0.8.3",
     "express": "^4.18.2",
     "gun": "^0.2020.1239",
-    "solid-js": "^1.7.5",
+    "solid-js": "^1.7.11",
     "solid-meta": "^0.28.1",
     "solid-utils": "^0.8.1",
-    "vite": "^4.3.8",
+    "vite": "^4.4.9",
     "vite-plugin-solid": "^2.7.0"
   }
 }

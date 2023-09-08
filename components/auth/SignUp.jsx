@@ -5,11 +5,10 @@ import {
 , onMount
 , onCleanup
 , createMemo
-, useContext
 //, on
 } from "solid-js";
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 import { useNavigate } from "@solidjs/router";
 
 const PageSignUp = () => {
@@ -17,9 +16,8 @@ const PageSignUp = () => {
   const [passphrase, setPassphrase] = createSignal("12345678")
   const navigate = useNavigate()
 
-  const [rootGun] = useContext(GunContext)
   console.log(rootGun())
-  let gun = rootGun();
+  let gun = useGun();
 
   function inputAlias(e){setAlias(e.target.value)}
   function inputPassphrase(e){setPassphrase(e.target.value)}

@@ -7,27 +7,20 @@
 import { 
   createSignal
 , onCleanup
-, useContext
 } from 'solid-js';
 
-import { GunContext } from '../components/auth/GunProvider';
+import { useGun } from '../components/auth/GunProvider';
 
 export default function Home() {
   const [name, setName] = createSignal('Guest');
-
-  const {rootGun} = useContext(GunContext)
-
-  const gun = rootGun();
-
+  const gun = useGun();
   const user = gun.user();
+
   if(user.is){
     setName(user.is.alias)
   }
   
-
-  onCleanup(()=>{
-
-  })
+  onCleanup(()=>{ })
 
   return (
     <>

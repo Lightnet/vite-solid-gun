@@ -8,13 +8,12 @@ import {
 , useContext
 } from "solid-js";
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 
 const PageAliasInfo = () =>{
 
-  const {rootGun} = useContext(GunContext)
   //console.log(rootGun())
-  const gun = rootGun();
+  const gun = useGun();
   let user = gun.user();
 
   const [alias, setAlias] = createSignal(user?.is?.alias || "Guest")

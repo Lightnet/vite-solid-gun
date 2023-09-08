@@ -9,20 +9,18 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext
 } from 'solid-js';
 
 import { Link, useLocation } from '@solidjs/router';
 import ToggleTheme from './theme/ToggleTheme';
-import { GunContext } from './auth/GunProvider';
+import { useGun } from './auth/GunProvider';
 
 const IndexMenus = () => {
 
   const location = useLocation();
   const pathname = createMemo(() => location.pathname);
 
-  const {rootGun} = useContext(GunContext);
-  let gun = rootGun();
+  const gun = useGun();
 
   //for menu display
   let whitelist = [
@@ -53,7 +51,7 @@ const IndexMenus = () => {
     ){
       //console.log("FOUND")
       //<Link class="btnLink" href="/privatemessage">Private Message</Link><span> | </span>
-      let user = gun.user();
+      const user = gun.user();
       if(user?.is){
         return ( <div>
           <Link class="btnLink" href="/"> Home </Link><span> | </span>

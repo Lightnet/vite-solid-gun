@@ -5,14 +5,13 @@ import {
 , useContext
 } from 'solid-js';
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 
 
 const PageSearchProfile = () =>{
 
-  const {rootGun} = useContext(GunContext)
   //console.log(rootGun())
-  const gun = rootGun();
+  const gun = useGun();
   
   const [publicKey, setPublicKey] = createSignal("")
   const [status, setStatus] = createSignal("Idle")
@@ -26,6 +25,17 @@ const PageSearchProfile = () =>{
   async function searchPublicKey(event){
     setPublicKey(event.target.value)
     setStatus("checking...")
+
+    //console.log("IS: ", Gun.state.is(event.target.value))
+    //console.log("ify: ", Gun.state.ify(event.target.value))
+    //console.log("ify: ", Gun.state)
+    //console.log("ify: ", Gun.state.ify(gun,null,null,null,event.target.value))
+    //console.log("soul: ", Gun.soul(event.target.value))
+
+    //console.log("soul: ", gun.soul(event.target.value))
+    //console.log("soul: ", gun)
+    console.log("gun: ", gun)
+
     let pub = (publicKey() || "").trim()
     if(!pub){
       console.log("EMPTY!")

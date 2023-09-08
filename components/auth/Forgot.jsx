@@ -10,7 +10,7 @@ import {
 //, on
 } from "solid-js";
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 import { useNavigate } from "@solidjs/router";
 
 const PageForgot = () => {
@@ -26,8 +26,7 @@ const PageForgot = () => {
   function inputHint(e){setHint(e.target.value)}
 
   const navigate = useNavigate()
-  const [rootGun] = useContext(GunContext)
-  const gun = rootGun();
+  const gun = useGun();
 
   async function btnGetHint(){
     setStatus('Checking...')

@@ -4,6 +4,11 @@
   Created by: Lightnet
 */
 
+import { Link } from "@solidjs/router";
+
 export default function About() {
-  return <h1>Hello About! Solid! Gun!</h1>;
+  return (<>
+  <Link class="btnLink" href="/"> Home </Link><span> | </span>
+  <h1>Hello About! Solid! Gun!</h1>;
+  </>) 
 }

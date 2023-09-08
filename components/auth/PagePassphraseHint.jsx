@@ -6,13 +6,12 @@ import {
 , useContext
 } from 'solid-js';
 
-import { GunContext } from "./GunProvider";
+import { useGun } from "./GunProvider";
 
 const PagePassphraseHint = () =>{
 
-  const [rootGun] = useContext(GunContext)
   //console.log(rootGun())
-  const gun = rootGun();
+  const gun = useGun();
 
   const [question1, setQuestion1] = createSignal("")
   const [question2, setQuestion2] = createSignal("")

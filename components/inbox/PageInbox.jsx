@@ -9,11 +9,10 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext
 , onMount
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { useGun } from '../auth/GunProvider';
 
 function PageInbox(){
   const [pubKey, setPubKey] = createSignal("")
@@ -28,8 +27,7 @@ function PageInbox(){
   const [scrollID, setScrollID] = createSignal(String.random(16))
   //const []= createSignal("")
 
-  const {rootGun} = useContext(GunContext);
-  let gun = rootGun();
+  const gun = useGun();
   let gunInbox;
   let gunList=[];
 

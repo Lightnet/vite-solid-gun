@@ -9,10 +9,8 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
 import CertInbox from './CertInbox';
 import CertMessages from './CertMessages';
 import CertNotifications from './CertNotifications';

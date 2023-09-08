@@ -20,7 +20,7 @@ function ContactList(){
 
   const [aliasContacts, setAliasContacts] = createSignal([]);
   const [aliasPub, setAliasPub] = createSignal("");
-  const rootGun = useGun();
+  const gun = useGun();
 
   onMount(()=>{
     loadAliaList()
@@ -28,7 +28,6 @@ function ContactList(){
 
   function loadAliaList(){
     return new Promise((res)=>{
-      let gun = rootGun();
       let user = gun.user();
       user.get('contact').map().once(async function(data, id){
         //console.log("user:",data);

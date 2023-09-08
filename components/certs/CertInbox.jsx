@@ -12,13 +12,11 @@ import {
 , useContext
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { useGun } from '../auth/GunProvider';
 
 function CertInbox(){
   const [days, setDays] = createSignal(1);
-
-  const [rootGun] =useContext(GunContext);
-  const gun = rootGun();
+  const gun = useGun();
 
   async function setInboxCert(){
     let user = gun.user();

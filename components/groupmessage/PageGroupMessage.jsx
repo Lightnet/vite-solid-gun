@@ -33,12 +33,11 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext,
-onMount,
-For
+, onMount
+, For
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { useGun } from '../auth/GunProvider';
 import Modal from '../modal/Modal';
 import SeaEncode from '../sea/SeaEncode';
 
@@ -71,8 +70,7 @@ function PageChatRoom(){
     setShowEncode(false)
   }
 
-  const {rootGun} = useContext(GunContext);
-  let gun = rootGun();
+  const gun = useGun();
 
   async function createRoom(){
     console.log(SEA)

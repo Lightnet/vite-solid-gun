@@ -9,18 +9,15 @@ import {
 , createMemo
 , createEffect 
 , onCleanup
-, useContext
 , onMount
 } from 'solid-js';
 
-import { GunContext } from '../auth/GunProvider';
+import { GunContext, useGun } from '../auth/GunProvider';
 
 function SendOnline(){
 
   const [pubKey,setPubKey] = createSignal("")
-
-  const [rootGun] = useContext(GunContext);
-  const gun = rootGun();
+  const gun = useGun();
 
   async function sendNote(){
     let pub = pubKey();
